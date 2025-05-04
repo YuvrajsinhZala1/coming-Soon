@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Coming Soon | Developer & Designer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #4263eb;
+            --secondary-color: #364fc7;
+            --accent-color: #edf2ff;
+            --text-color: #333;
+            --light-text: #666;
+            --background: #f8f9fa;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary-color);
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+
+        /* Main Content */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            animation: slideUp 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--light-text);
+        }
+
+        /* Skills Section */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .skill-tag {
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            background-color: #dfe6ff;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .countdown-item {
+            width: 100px;
+            height: 100px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .countdown-number {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .countdown-text {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* Email Subscription */
+        .subscription {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        .subscription form {
+            display: flex;
+            justify-content: center;
+        }
+
+        .subscription input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .subscription input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .subscription button {
+            padding: 15px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscription button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Message Display */
+        .message {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .countdown-number {
+                font-size: 28px;
+            }
+            
+            .subscription form {
+                flex-direction: column;
+            }
+            
+            .subscription input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .subscription button {
+                border-radius: 5px;
+            }
+            
+            .skills {
+                gap: 10px;
+            }
+            
+            .skill-tag {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .countdown-item {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .countdown-number {
+                font-size: 20px;
+            }
+            
+            .countdown-text {
+                font-size: 12px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+            
+            .avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="avatar">
+                <i class="fas fa-code"></i>
+            </div>
+            <div class="logo">YUVRAJSINH ZALA</div>
+            <div class="tagline">Developer & Designer</div>
+        </div>
+        
+        <div class="content">
+            <h1>Portfolio Coming Soon</h1>
+            <p>I'm currently crafting an impressive portfolio to showcase my projects and skills. The site is under development and will be launched soon. Stay tuned to see my work!</p>
+            
+            <div class="skills">
+                <div class="skill-tag">HTML/CSS</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">React</div>
+                <div class="skill-tag">Node.js</div>
+                <div class="skill-tag">UI/UX Design</div>
+                <div class="skill-tag">Responsive Design</div>
+                <div class="skill-tag">App Development</div>
+            </div>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-text">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-text">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-text">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-text">Seconds</div>
+                </div>
+            </div>
+            
+            <div class="subscription">
+                <div id="message" class="message"></div>
+                <form id="subscription-form">
+                    <input type="email" id="email" placeholder="yuvrajzala0605004@gmail.com" required>
+                    <button type="submit">Notify Me</button>
+                </form>
+            </div>
+            
+            
+        
+        <div class="footer">
+            &copy; 2025 YUVRAJSINH ZALA. All Rights Reserved.
+        </div>
+    </div>
+    
+    <script>
+        // Debugging mode
+        const DEBUG = true;
+        
+        // Logger function
+        function logger(message, type = 'info') {
+            const date = new Date();
+            const timestamp = date.toISOString();
+            const logMessage = `[${timestamp}] [${type.toUpperCase()}] ${message}`;
+            
+            // Log to console
+            if (type === 'error') {
+                console.error(logMessage);
+            } else if (type === 'warn') {
+                console.warn(logMessage);
+            } else {
+                console.log(logMessage);
+            }
+            
+            // Save to log file
+            if (DEBUG) {
+                // In a real implementation, this would save to a file
+                // Here we're simulating by appending to localStorage
+                const logs = JSON.parse(localStorage.getItem('portfolio_logs') || '[]');
+                logs.push(logMessage);
+                localStorage.setItem('portfolio_logs', JSON.stringify(logs));
+                
+                // Create a log download feature (for development)
+                //createLogDownload();
+            }
+        }
+        
+        // Create a download link for logs (development feature)
+       /* function createLogDownload() {
+            // Check if the download link already exists
+            if (!document.getElementById('log-download')) {
+                const logs = JSON.parse(localStorage.getItem('portfolio_logs') || '[]');
+                const logText = logs.join('\n');
+                
+                const blob = new Blob([logText], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                
+                const downloadLink = document.createElement('a');
+                downloadLink.id = 'log-download';
+                downloadLink.href = url;
+                downloadLink.download = 'portfolio_logs.txt';
+                downloadLink.textContent = 'Download Logs';
+                downloadLink.style.display = 'none';
+                
+                // Only show in debug mode
+                if (DEBUG) {
+                    const footer = document.querySelector('.footer');
+                    footer.appendChild(document.createElement('br'));
+                    footer.appendChild(downloadLink);
+                    downloadLink.style.display = 'inline-block';
+                    downloadLink.style.marginTop = '10px';
+                    downloadLink.style.color = '#4263eb';
+                    downloadLink.style.textDecoration = 'underline';
+                    downloadLink.style.cursor = 'pointer';
+                }
+            }
+        }*/
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            logger('DOM fully loaded, initializing portfolio coming soon page');
+            
+            try {
+                // Set the launch date (21 days from now)
+                const now = new Date();
+                const launchDate = new Date();
+                launchDate.setDate(now.getDate() + 2); // Shorter timeline for portfolio
+                
+                logger(`Portfolio launch date set to: ${launchDate.toISOString()}`);
+                
+                // Countdown timer
+                function updateCountdown() {
+                    try {
+                        const currentTime = new Date();
+                        const difference = launchDate - currentTime;
+                        
+                        // If launch date is reached
+                        if (difference <= 0) {
+                            document.getElementById('days').innerText = '00';
+                            document.getElementById('hours').innerText = '00';
+                            document.getElementById('minutes').innerText = '00';
+                            document.getElementById('seconds').innerText = '00';
+                            clearInterval(countdownTimer);
+                            logger('Countdown finished, portfolio should be launched');
+                            return;
+                        }
+                        
+                        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                        
+                        document.getElementById('days').innerText = days < 10 ? `0${days}` : days;
+                        document.getElementById('hours').innerText = hours < 10 ? `0${hours}` : hours;
+                        document.getElementById('minutes').innerText = minutes < 10 ? `0${minutes}` : minutes;
+                        document.getElementById('seconds').innerText = seconds < 10 ? `0${seconds}` : seconds;
+                    } catch (error) {
+                        logger(`Error updating countdown: ${error.message}`, 'error');
+                    }
+                }
+                
+                // Add animation to skills
+                const skillTags = document.querySelectorAll('.skill-tag');
+                skillTags.forEach((tag, index) => {
+                    setTimeout(() => {
+                        tag.style.animation = 'pulse 2s infinite';
+                    }, index * 200);
+                });
+                
+                // Initial call
+                updateCountdown();
+                
+                // Update every second
+                const countdownTimer = setInterval(updateCountdown, 1000);
+                logger('Portfolio countdown timer started successfully');
+                
+                // Form submission
+                const form = document.getElementById('subscription-form');
+                const messageElement = document.getElementById('message');
+                
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    try {
+                        const email = document.getElementById('email').value;
+                        logger(`Portfolio form submitted with email: ${email}`);
+                        
+                        // Validate email
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(email)) {
+                            throw new Error('Please enter a valid email address');
+                        }
+                        
+                        // In a real scenario, this would send the email to your server
+                        // For now, we'll just show a success message
+                        showMessage('Thank you! I\'ll notify you when my portfolio launches.', 'success');
+                        form.reset();
+                        
+                        // Simulating saving to server
+                        setTimeout(() => {
+                            logger(`Email ${email} saved successfully to portfolio notification list`);
+                        }, 500);
+                    } catch (error) {
+                        logger(`Portfolio form submission error: ${error.message}`, 'error');
+                        showMessage(error.message, 'error');
+                    }
+                });
+                
+                function showMessage(text, type) {
+                    messageElement.textContent = text;
+                    messageElement.className = `message ${type}`;
+                    messageElement.style.display = 'block';
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        messageElement.style.display = 'none';
+                    }, 5000);
+                }
+                
+            } catch (error) {
+                logger(`Portfolio initialization error: ${error.message}`, 'error');
+            }
+        });
+    </script>
+</body>
+</html>
